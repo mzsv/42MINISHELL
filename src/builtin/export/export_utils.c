@@ -6,7 +6,7 @@
 /*   By: amenses- <amenses-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/26 20:11:46 by amenses-          #+#    #+#             */
-/*   Updated: 2023/06/20 20:46:47 by amenses-         ###   ########.fr       */
+/*   Updated: 2023/06/22 23:02:17 by amenses-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,7 @@ void	add_envlist_item(t_app **self, char *arg)
 	{
 		set_env_value((*self)->env_list, item[0], item[1]);
 		free(item[0]);
+		free(item[1]);
 	}
 	else
 	{
