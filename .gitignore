@@ -1,0 +1,15 @@
+# to be ignored
+.vscode/
+*.o
+*.a
+.*
+*a.out
+minishell
+m.c
+ms
+ms/
+out*
+
+# not to be ignored
+!.gitignore
+!.git
