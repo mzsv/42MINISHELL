@@ -44,7 +44,7 @@ int	parser(t_app *app)
 	t_command	*command;
 
 	parser = NULL;
-	if (app->lexer_tokens->token_type == PIPE)
+	if (app->lexer_tokens && app->lexer_tokens->token_type == PIPE)
 		 return (parser_double_token_error(app, app->lexer_tokens,
 		 		app->lexer_tokens->token_type));
 	count_pipes(app);

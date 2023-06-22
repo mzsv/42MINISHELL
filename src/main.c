@@ -59,8 +59,8 @@ static int	mini_loop(t_app *app)
 	if (!get_tokens(app))
 		return (ft_error(1, app));
 	if (parser(app) != 0 || expander(app) != 0 || executor(app) != 0)
-		return (g_exit_status);
-	// reset(app);
+		return (reset(app), g_exit_status);
+	reset(app);
 	return (0);
 }
 

@@ -21,11 +21,18 @@ size_t expand_dollar_sign(char *str, size_t start, char **line, t_env_list *list
     char *result;
 
     end = start + 1;
-    if (str[end] && str[end] == '?') {
+	if (str[end] == '\0')
+	{
+		*line = ft_strdup("$");
+		return (start + 1);
+	}
+	if (str[end] && str[end] == '?')
+	{
         *line = ft_itoa(g_exit_status);
         return (start + 2);
     }
-    if (str[end] && is_var_name(str[end]) == false) {
+	if (str[end] && is_var_name(str[end]) == false)
+	{
         result = ft_substr(str, start, 2);
         *line = result;
         return (end + 1);
