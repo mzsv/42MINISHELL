@@ -6,7 +6,7 @@
 /*   By: amenses- <amenses-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/13 21:11:43 by amenses-          #+#    #+#             */
-/*   Updated: 2023/06/22 21:56:36 by amenses-         ###   ########.fr       */
+/*   Updated: 2023/06/22 23:04:46 by amenses-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,8 +49,12 @@ static int	mini_loop(t_app *app)
 	l = readline(ppt);
 	free(ppt);
 	ctrl_d(l, &app);
+	if (!l[0])
+		return (free(l), 0);
 	add_history(l);
-	app->input = ft_strtrim(l, " ");
+	app->input = ft_strtrim(l, " \t");
+	if (!app->input || !*app->input)
+		return (0);
 	free(l);
 	if (!app->input)
 		return (mini_perr(PRE, "malloc", 1, 0));
