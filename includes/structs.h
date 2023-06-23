@@ -34,6 +34,10 @@ typedef enum s_token_type
 
 typedef struct s_lexer_token
 {
+
+
+
+
 	size_t 					index;
 	char					*str;
 	t_token_type			token_type;

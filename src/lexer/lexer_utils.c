@@ -55,19 +55,18 @@ int	add_node(char *str, t_token_type token_type, t_lexer_token **list)
 	return (1);
 }
 
-void	ft_lexerclear(t_lexer_token **lst)
+void	ft_lexerclear(t_lexer_token **list)
 {
-	t_lexer_token	*tmp;
+	t_lexer_token	*current;
+	t_lexer_token	*next;
 
-	if (!*lst)
-		return ;
-	while (*lst)
-	{
-		tmp = (*lst)->next;
-		if ((*lst)->str)
-			free((*lst)->str);
-		free(*lst);
-		*lst = tmp;
+	current = *list;
+	while (current != NULL) {
+		next = current->next;
+		if (current->str)
+			free(current->str);
+		free(current);
+		current = next;
 	}
-	*lst = NULL;
+	*list = NULL;
 }

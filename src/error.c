@@ -20,12 +20,6 @@ void	parser_error(int error, t_app *app, t_lexer_token *lexer_list)
 	ft_error(error, app);
 }
 
-/* static void reset(t_app *app)
-{
-	if (app)
-		printf("Reset\n");
-} */
-
 int	handle_pipe_errors(t_app *app, t_token_type token_type)
 {
 	if (token_type == PIPE)
@@ -47,6 +41,8 @@ int	handle_pipe_errors(t_app *app, t_token_type token_type)
 int	parser_double_token_error(t_app *app, t_lexer_token *lexer_list,
 								t_token_type token)
 {
+	(void)app;
+	(void)lexer_list;
 	ft_putstr_fd("minishell: syntax error near unexpected token ",
 		STDERR_FILENO);
 	if (token == GREAT)
@@ -61,8 +57,6 @@ int	parser_double_token_error(t_app *app, t_lexer_token *lexer_list,
 		ft_putstr_fd("'|'\n", STDERR_FILENO);
 	else
 		ft_putstr_fd("\n", STDERR_FILENO);
-	ft_lexerclear(&lexer_list);
-	reset(app); //!!!
 	return (EXIT_FAILURE);
 }
 
