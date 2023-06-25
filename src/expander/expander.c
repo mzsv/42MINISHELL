@@ -6,11 +6,27 @@
 /*   By: amitcul <amitcul@student.42porto.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/22 09:15:29 by amitcul           #+#    #+#             */
-/*   Updated: 2023/06/25 12:11:16 by amitcul          ###   ########.fr       */
+/*   Updated: 2023/06/25 12:17:23 by amitcul          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/expander.h"
+
+static size_t	expand_string_helper(
+	char *str, size_t i, char **line, t_env_list *list)
+{
+	if (str[i] == '\\')
+		i = expand_backslash(str, i, line);
+	else if (str[i] == '\'')
+		i = expand_single_quotes(str, i, line);
+	else if (str[i] == '"')
+		i = expand_double_quotes(str, i, line, list);
+	else if (str[i] == '$')
+		i = expand_dollar_sign(str, i, line, list);
+	else
+		i = expand_plain_text(str, i, line);
+	return (i);
+}
 
 static char	*expand_string(char *str, t_env_list *list)
 {
@@ -25,16 +41,7 @@ static char	*expand_string(char *str, t_env_list *list)
 	while (str[i])
 	{
 		line = NULL;
-		if (str[i] == '\\')
-			i = expand_backslash(str, i, &line);
-		else if (str[i] == '\'')
-			i = expand_single_quotes(str, i, &line);
-		else if (str[i] == '"')
-			i = expand_double_quotes(str, i, &line, list);
-		else if (str[i] == '$')
-			i = expand_dollar_sign(str, i, &line, list);
-		else
-			i = expand_plain_text(str, i, &line);
+		expand_string_helper(str, i, &line, list);
 		if (line)
 		{
 			result[curr_index++] = ft_strdup(line);
