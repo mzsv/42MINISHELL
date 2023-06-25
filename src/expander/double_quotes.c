@@ -6,7 +6,7 @@
 /*   By: amitcul <amitcul@student.42porto.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/22 09:15:29 by amitcul           #+#    #+#             */
-/*   Updated: 2023/06/25 12:09:45 by amitcul          ###   ########.fr       */
+/*   Updated: 2023/06/25 12:20:11 by amitcul          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,18 @@ static bool	is_valid_to_expand_from_double_quotes(const char *str, size_t i)
 	return (false);
 }
 
+static size_t	expand_double_quotes_helper(
+	char *str, size_t i, char **tmp, t_env_list *list)
+{
+	if (is_valid_to_expand_from_double_quotes(str, i))
+		i = expand_backslash(str, i, tmp);
+	else if (str[i] == '$')
+		i = expand_dollar_sign(str, i, tmp, list);
+	else
+		i = expand_plain_text(str, i, tmp);
+	return (i);
+}
+
 size_t	expand_double_quotes(char *str, size_t start, char **line,
 		t_env_list *list)
 {
@@ -37,12 +49,7 @@ size_t	expand_double_quotes(char *str, size_t start, char **line,
 	while (str[i] && str[i] != '"')
 	{
 		tmp = NULL;
-		if (is_valid_to_expand_from_double_quotes(str, i))
-			i = expand_backslash(str, i, &tmp);
-		else if (str[i] == '$')
-			i = expand_dollar_sign(str, i, &tmp, list);
-		else
-			i = expand_plain_text(str, i, &tmp);
+		i = expand_double_quotes_helper(str, i, &tmp, list);
 		if (tmp)
 		{
 			result[curr_index++] = ft_strdup(tmp);

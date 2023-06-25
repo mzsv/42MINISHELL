@@ -6,7 +6,7 @@
 /*   By: amitcul <amitcul@student.42porto.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/22 09:15:29 by amitcul           #+#    #+#             */
-/*   Updated: 2023/06/25 12:17:23 by amitcul          ###   ########.fr       */
+/*   Updated: 2023/06/25 12:20:26 by amitcul          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ static char	*expand_string(char *str, t_env_list *list)
 	while (str[i])
 	{
 		line = NULL;
-		expand_string_helper(str, i, &line, list);
+		i = expand_string_helper(str, i, &line, list);
 		if (line)
 		{
 			result[curr_index++] = ft_strdup(line);
