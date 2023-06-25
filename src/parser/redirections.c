@@ -6,7 +6,7 @@
 /*   By: amitcul <amitcul@student.42porto.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/03 21:56:58 by amitcul           #+#    #+#             */
-/*   Updated: 2023/06/25 12:37:09 by amitcul          ###   ########.fr       */
+/*   Updated: 2023/06/25 12:41:40 by amitcul          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,7 +60,7 @@ void	collect_redirections(t_parser *parser)
 	if (curr->next == NULL)
 		parser_error(0, parser->app, parser->lexer_list);
 	if (curr->next->token_type > WORD)
-		parser_double_token_error(parser->app,
+		pdte(parser->app,
 			parser->lexer_list, curr->next->token_type);
 	if (curr->token_type >= GREAT && curr->token_type <= L_LESS)
 		add_new_redirect(parser, curr);

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   error.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: amenses- <amenses-@student.42.fr>          +#+  +:+       +#+        */
+/*   By: amitcul <amitcul@student.42porto.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/05 20:58:59 by amitcul           #+#    #+#             */
-/*   Updated: 2023/06/20 18:33:59 by amenses-         ###   ########.fr       */
+/*   Updated: 2023/06/25 12:41:41 by amitcul          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ int	handle_pipe_errors(t_app *app, t_token_type token_type)
 {
 	if (token_type == PIPE)
 	{
-		parser_double_token_error(app, app->lexer_tokens,
+		pdte(app, app->lexer_tokens,
 								  app->lexer_tokens->token_type);
 		return (EXIT_FAILURE);
 	}
@@ -38,7 +38,7 @@ int	handle_pipe_errors(t_app *app, t_token_type token_type)
 
 
 
-int	parser_double_token_error(t_app *app, t_lexer_token *lexer_list,
+int	pdte(t_app *app, t_lexer_token *lexer_list,
 								t_token_type token)
 {
 	(void)app;

@@ -6,7 +6,7 @@
 /*   By: amitcul <amitcul@student.42porto.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/16 20:13:05 by amitcul           #+#    #+#             */
-/*   Updated: 2023/06/25 12:37:01 by amitcul          ###   ########.fr       */
+/*   Updated: 2023/06/25 12:41:39 by amitcul          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,10 +43,8 @@ int	parser(t_app *app)
 	t_parser	*parser;
 	t_command	*command;
 
-	parser = NULL;
 	if (app->lexer_tokens && app->lexer_tokens->token_type == PIPE)
-		return (parser_double_token_error(app, app->lexer_tokens,
-				app->lexer_tokens->token_type));
+		return (pdte(app, app->lexer_tokens, app->lexer_tokens->token_type));
 	count_pipes(app);
 	while (app->lexer_tokens)
 	{
