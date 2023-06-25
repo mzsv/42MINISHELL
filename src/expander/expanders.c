@@ -6,7 +6,7 @@
 /*   By: amitcul <amitcul@student.42porto.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/22 10:51:57 by amitcul           #+#    #+#             */
-/*   Updated: 2023/06/25 12:24:45 by amitcul          ###   ########.fr       */
+/*   Updated: 2023/06/25 12:33:02 by amitcul          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ size_t	expand_dollar_sign(char *str, size_t start, char **line,
 		t_env_list *list)
 {
 	size_t	end;
-	size_t	index;
+	int		index;
 	char	*key;
 	char	*result;
 

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   command.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: amenses- <amenses-@student.42.fr>          +#+  +:+       +#+        */
+/*   By: amitcul <amitcul@student.42porto.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/03 21:53:35 by amitcul           #+#    #+#             */
-/*   Updated: 2023/06/10 16:57:56 by amenses-         ###   ########.fr       */
+/*   Updated: 2023/06/25 12:27:39 by amitcul          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,6 @@ t_command	*init_command(char **str, size_t redirs_count,
 	command = (t_command *)ft_calloc(1, sizeof(t_command));
 	if (!command)
 		return (NULL);
-	// ft_bzero(command, sizeof(t_command));
 	command->str = str;
 	command->redirs_count = redirs_count;
 	command->redirs = redirs;
@@ -53,7 +52,7 @@ t_command	*get_command(t_parser *parser)
 	args_count = count_args(parser->lexer_list);
 	str = (char **) ft_calloc(args_count + 1, sizeof(char *));
 	if (!str)
-		exit(2); //! Handle
+		exit(2);
 	curr = parser->lexer_list;
 	i = 0;
 	while (args_count > 0)
