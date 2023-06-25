@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   expanders.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: amitcul <amitcul@student.42porto.c>        +#+  +:+       +#+        */
+/*   By: amitcul <amitcul@student.42porto.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/22 10:51:57 by amitcul           #+#    #+#             */
-/*   Updated: 2023/06/22 10:52:00 by amitcul          ###   ########.fr       */
+/*   Updated: 2023/06/25 12:24:45 by amitcul          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,30 +14,42 @@
 
 extern int	g_exit_status;
 
-size_t	expand_dollar_sign(char *str, size_t start, char **line,
-		t_env_list *list)
+static int	expand_dollar_sign_helper(
+	char *str, size_t start, size_t end, char **result)
 {
-	size_t	end;
-	char	*key;
-	char	*result;
+	char	*tmp;
 
-	end = start + 1;
 	if (str[end] == '\0')
 	{
-		*line = ft_strdup("$");
+		*result = ft_strdup("$");
 		return (start + 1);
 	}
 	if (str[end] && str[end] == '?')
 	{
-		*line = ft_itoa(g_exit_status);
+		*result = ft_itoa(g_exit_status);
 		return (start + 2);
 	}
 	if (str[end] && is_var_name(str[end]) == false)
 	{
-		result = ft_substr(str, start, 2);
-		*line = result;
+		tmp = ft_substr(str, start, 2);
+		*result = tmp;
 		return (end + 1);
 	}
+	return (-1);
+}
+
+size_t	expand_dollar_sign(char *str, size_t start, char **line,
+		t_env_list *list)
+{
+	size_t	end;
+	size_t	index;
+	char	*key;
+	char	*result;
+
+	end = start + 1;
+	index = expand_dollar_sign_helper(str, start, end, line);
+	if (index >= 0)
+		return (index);
 	while (str[end] && is_var_name(str[end]))
 		end++;
 	key = ft_substr(str, start + 1, end - start - 1);
