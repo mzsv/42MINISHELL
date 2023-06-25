@@ -6,11 +6,12 @@
 /*   By: amitcul <amitcul@student.42porto.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/03 21:57:03 by amitcul           #+#    #+#             */
-/*   Updated: 2023/06/03 21:57:06 by amitcul          ###   ########.fr       */
+/*   Updated: 2023/06/25 12:37:16 by amitcul          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/parser.h"
+
 void	free_lexer_node(t_lexer_token *token)
 {
 	if (!token)

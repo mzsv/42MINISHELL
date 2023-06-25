@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parser.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: amenses- <amenses-@student.42.fr>          +#+  +:+       +#+        */
+/*   By: amitcul <amitcul@student.42porto.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/16 20:13:05 by amitcul           #+#    #+#             */
-/*   Updated: 2023/06/22 21:47:16 by amenses-         ###   ########.fr       */
+/*   Updated: 2023/06/25 12:37:01 by amitcul          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,8 +45,8 @@ int	parser(t_app *app)
 
 	parser = NULL;
 	if (app->lexer_tokens && app->lexer_tokens->token_type == PIPE)
-		 return (parser_double_token_error(app, app->lexer_tokens,
-		 		app->lexer_tokens->token_type));
+		return (parser_double_token_error(app, app->lexer_tokens,
+				app->lexer_tokens->token_type));
 	count_pipes(app);
 	while (app->lexer_tokens)
 	{

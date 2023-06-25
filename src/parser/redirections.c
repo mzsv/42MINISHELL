@@ -6,13 +6,14 @@
 /*   By: amitcul <amitcul@student.42porto.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/03 21:56:58 by amitcul           #+#    #+#             */
-/*   Updated: 2023/06/03 21:58:25 by amitcul          ###   ########.fr       */
+/*   Updated: 2023/06/25 12:37:09 by amitcul          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/lexer.h"
 #include "../../includes/parser.h"
 #include "../../includes/error.h"
+
 static void	push_back(t_lexer_token **list, t_lexer_token *new)
 {
 	t_lexer_token	*curr;
