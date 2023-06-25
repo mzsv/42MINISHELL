@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   structs.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: amenses- <amenses-@student.42.fr>          +#+  +:+       +#+        */
+/*   By: amitcul <amitcul@student.42porto.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/06 14:39:34 by amitcul           #+#    #+#             */
-/*   Updated: 2023/06/20 14:00:45 by amenses-         ###   ########.fr       */
+/*   Updated: 2023/06/25 12:50:40 by amitcul          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,11 +20,11 @@ typedef struct s_env_list
 	char				*key;
 	char				*value;
 	struct s_env_list	*next;
-} t_env_list;
+}	t_env_list;
 
 typedef enum s_token_type
 {
-    WORD = 0,
+	WORD = 0,
 	PIPE,
 	GREAT,
 	G_GREAT,
@@ -34,11 +34,7 @@ typedef enum s_token_type
 
 typedef struct s_lexer_token
 {
-
-
-
-
-	size_t 					index;
+	size_t					index;
 	char					*str;
 	t_token_type			token_type;
 	struct s_lexer_token	*next;
@@ -54,10 +50,6 @@ typedef struct s_app
 	t_lexer_token		*lexer_tokens;
 	struct s_command	*commands_list;
 	int					pipes_count;
-
-	// int *pid;
-	// bool heredoc;
-	// bool reset;
-} t_app;
+}	t_app;
 
 #endif

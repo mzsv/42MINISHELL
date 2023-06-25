@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   utils.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: amenses- <amenses-@student.42.fr>          +#+  +:+       +#+        */
+/*   By: amitcul <amitcul@student.42porto.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/18 20:37:55 by amitcul           #+#    #+#             */
-/*   Updated: 2023/06/20 18:33:35 by amenses-         ###   ########.fr       */
+/*   Updated: 2023/06/25 12:50:57 by amitcul          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,14 +28,11 @@ void		print_dll_list(t_dll_item *head_ref, void (*f)(void *));
 void		dll_append(t_dll_item **head_ref, void *new_data);
 void		dll_push(t_dll_item **head_ref, void *new_data);
 void		free_dll_list(t_dll_item *head_ref, void (*f)(void *));
-
 int			count_symbol_in_string(char *str, int ch);
-
 t_env_list	*init(char *key, char *value);
 void		push_front(t_app *self, t_env_list *new);
-
-void 	free_command_list(t_command **list);
-void	reset(t_app *app);
-void	terminate(t_app **app);
+void		free_command_list(t_command **list);
+void		reset(t_app *app);
+void		terminate(t_app **app);
 
 #endif
