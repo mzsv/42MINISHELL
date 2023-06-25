@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main_utils.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: amenses- <amenses-@student.42.fr>          +#+  +:+       +#+        */
+/*   By: amitcul <amitcul@student.42porto.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/20 18:30:14 by amenses-          #+#    #+#             */
-/*   Updated: 2023/06/20 19:36:04 by amenses-         ###   ########.fr       */
+/*   Updated: 2023/06/25 12:05:33 by amitcul          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,10 @@
 
 extern int	g_exit_status;
 
-void free_command_list(t_command **list)
+void	free_command_list(t_command **list)
 {
-	t_command *cmd;
-	t_command *prev;
+	t_command	*cmd;
+	t_command	*prev;
 
 	cmd = *list;
 	while (cmd)
