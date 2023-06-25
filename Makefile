@@ -6,7 +6,7 @@
 #    By: amitcul <amitcul@student.42porto.com>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/02/16 11:02:30 by amitcul           #+#    #+#              #
-#    Updated: 2023/06/25 12:26:01 by amitcul          ###   ########.fr        #
+#    Updated: 2023/06/25 12:44:45 by amitcul          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -44,7 +44,7 @@ LIB_TERMCAP = -lreadline
 SRCS += main.c
 
 # Error files
-SRCS += error.c
+SRCS += error.c parser_error.c
 
 # Lexer source files
 SRCS += quotes.c tokens.c lexer_utils.c
@@ -77,6 +77,7 @@ vpath %.c src/lexer/
 vpath %.c src/parser/
 vpath %.c src/expander/
 vpath %.c src/executor/
+vpath %.c src/error/
 
 vpath %.c src/utils/
 vpath %.c src/builtin/unset

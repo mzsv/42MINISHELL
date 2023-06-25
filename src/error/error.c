@@ -6,26 +6,19 @@
 /*   By: amitcul <amitcul@student.42porto.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/05 20:58:59 by amitcul           #+#    #+#             */
-/*   Updated: 2023/06/25 12:41:41 by amitcul          ###   ########.fr       */
+/*   Updated: 2023/06/25 12:44:21 by amitcul          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/error.h"
-
 #include <stdio.h>
-
-void	parser_error(int error, t_app *app, t_lexer_token *lexer_list)
-{
-	ft_lexerclear(&lexer_list);
-	ft_error(error, app);
-}
 
 int	handle_pipe_errors(t_app *app, t_token_type token_type)
 {
 	if (token_type == PIPE)
 	{
 		pdte(app, app->lexer_tokens,
-								  app->lexer_tokens->token_type);
+			app->lexer_tokens->token_type);
 		return (EXIT_FAILURE);
 	}
 	if (!app->lexer_tokens)
@@ -34,30 +27,6 @@ int	handle_pipe_errors(t_app *app, t_token_type token_type)
 		return (EXIT_FAILURE);
 	}
 	return (EXIT_SUCCESS);
-}
-
-
-
-int	pdte(t_app *app, t_lexer_token *lexer_list,
-								t_token_type token)
-{
-	(void)app;
-	(void)lexer_list;
-	ft_putstr_fd("minishell: syntax error near unexpected token ",
-		STDERR_FILENO);
-	if (token == GREAT)
-		ft_putstr_fd("'>'\n", STDERR_FILENO);
-	else if (token == G_GREAT)
-		ft_putstr_fd("'>>'\n", STDERR_FILENO);
-	else if (token == LESS)
-		ft_putstr_fd("'<'\n", STDERR_FILENO);
-	else if (token == L_LESS)
-		ft_putstr_fd("'<<'\n", STDERR_FILENO);
-	else if (token == PIPE)
-		ft_putstr_fd("'|'\n", STDERR_FILENO);
-	else
-		ft_putstr_fd("\n", STDERR_FILENO);
-	return (EXIT_FAILURE);
 }
 
 int	export_error(char *c)
@@ -110,6 +79,6 @@ int	ft_error(int error, t_app *app)
 		ft_putstr_fd("infile: No such file or directory\n", STDERR_FILENO);
 	else if (error == 8)
 		ft_putendl_fd("Path does not exist", STDERR_FILENO);
-	reset(app); //!!!
+	reset(app);
 	return (EXIT_FAILURE);
 }
