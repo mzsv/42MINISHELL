@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strtrim.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: amenses- <amenses-@student.42.fr>          +#+  +:+       +#+        */
+/*   By: amitcul <amitcul@student.42porto.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/17 12:04:58 by alexmitcul        #+#    #+#             */
-/*   Updated: 2023/06/10 16:49:17 by amenses-         ###   ########.fr       */
+/*   Updated: 2023/06/25 12:35:45 by amitcul          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@
 
 #include "libft.h"
 
-static int ft_isspace(char ch, const char *set)
+static int	ft_isspace(char ch, const char *set)
 {
 	while (*set != '\0')
 	{
@@ -37,12 +37,12 @@ static int ft_isspace(char ch, const char *set)
 	return (0);
 }
 
-char* ft_strtrim(const char* str, const char* set)
+char	*ft_strtrim(const char *str, const char *set)
 {
 	size_t		trimmed_length;
-	char*		trimmed_str;
-	const char*	start;
-	const char*	end;
+	char		*trimmed_str;
+	const char	*start;
+	const char	*end;
 
 	if (str == NULL)
 		return (NULL);
