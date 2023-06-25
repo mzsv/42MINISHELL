@@ -6,7 +6,7 @@
 /*   By: amitcul <amitcul@student.42porto.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/06 12:50:52 by amitcul           #+#    #+#             */
-/*   Updated: 2023/06/05 21:01:31 by amitcul          ###   ########.fr       */
+/*   Updated: 2023/06/25 12:06:54 by amitcul          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,7 +61,8 @@ void	ft_lexerclear(t_lexer_token **list)
 	t_lexer_token	*next;
 
 	current = *list;
-	while (current != NULL) {
+	while (current != NULL)
+	{
 		next = current->next;
 		if (current->str)
 			free(current->str);
