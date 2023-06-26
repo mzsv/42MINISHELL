@@ -6,27 +6,13 @@
 /*   By: amenses- <amenses-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/13 21:11:43 by amenses-          #+#    #+#             */
-/*   Updated: 2023/06/22 23:04:46 by amenses-         ###   ########.fr       */
+/*   Updated: 2023/06/26 19:30:17 by amenses-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/minishell.h"
 
 int	g_exit_status = 0;
-
-char	*ft_readline(char *prompt)
-{
-	char	*line;
-	char	*tmp;
-
-	ft_putstr_fd(prompt, STDOUT_FILENO);
-	tmp = get_next_line(STDIN_FILENO);
-	line = tmp;
-	if (tmp)
-		line = ft_substr(tmp, 0, ft_strlen(tmp) - 1);
-	free(tmp);
-	return (line);
-}
 
 static void	ctrl_d(char *line, t_app **app)
 {
