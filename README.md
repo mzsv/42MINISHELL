@@ -7,7 +7,7 @@
 4. [Implementation Details](#implementation-details)
 5. [How to use](#how-to-use)
 6. [Contributors](#contributors)
-7. [Acknowledgments](#acknowledgments)
+7. [Acknowledgements](#acknowledgments)
 
 ## Overview
 
